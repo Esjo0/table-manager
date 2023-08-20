@@ -326,6 +326,34 @@
 </div>
 
 <div class="content" role="main">
+  <div class="container">
+    <h1>Data Pagination App</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls
+      (pageChange)="onPageChange($event)"
+      [previousLabel]="'Previous'"
+      [nextLabel]="'Next'"
+      [pageSizes]="[10, 20, 50]"
+      [pageSize]="pageSize"
+      [totalItems]="100"
+    ></pagination-controls>
+  </div>
+  
 
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
@@ -349,6 +377,7 @@
     </svg>
 
   </div>
+
 
   <!-- Resources -->
   <h2>Resources</h2>
