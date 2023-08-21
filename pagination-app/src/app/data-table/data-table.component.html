@@ -1,0 +1,53 @@
+<div class="container">
+    <mat-card class="mat-elevation-z4">
+        <mat-card-header>
+            <mat-card-title>User List</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="table-responsive">
+            <div class="scrollable-table">
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- Loop through columns -->
+                <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+                    <mat-header-cell *matHeaderCellDef>
+                        <!-- Display custom header labels based on the column -->
+                        <ng-container [ngSwitch]="column">
+                            <ng-container *ngSwitchCase="'id'">Client ID</ng-container>
+                            <ng-container *ngSwitchCase="'first_name'">First Name</ng-container>
+                            <ng-container *ngSwitchCase="'last_name'">Last Name</ng-container>
+                            <ng-container *ngSwitchCase="'email'">Email Address</ng-container>
+                            <ng-container *ngSwitchCase="'phone_number'">Phone Number</ng-container>
+                            <ng-container *ngSwitchCase="'avatar'"></ng-container>
+                            <!-- Add more cases for other columns if needed -->
+                            <ng-container *ngSwitchDefault>{{ column | titlecase }}</ng-container>
+                        </ng-container>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <!-- Handle the "avatar" column separately -->
+                        <ng-container [ngSwitch]="column">
+                            <ng-container *ngSwitchCase="'avatar'">
+                                <img [src]="element.avatar" alt="..." class="avatar-image img img-responsive rounded">
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'email'">
+                                <a class="white-link" href="mailto:{{ element.email }}">{{ element.email }}</a>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'phone_number'">
+                                <a class="white-link" href="tel:{{ element.phone_number }}">{{ element.phone_number }}</a>
+                            </ng-container>
+                            <!-- Add more cases for other columns if needed -->
+                            <ng-container *ngSwitchDefault>{{ element[column] }}</ng-container>
+                        </ng-container>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Header and row definitions -->
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            </div>
+            </div>
+            <mat-paginator #paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons>
+            </mat-paginator>
+        </mat-card-content>
+    </mat-card>
+</div>

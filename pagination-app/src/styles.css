@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.avatar-image {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    object-fit: cover; /* Preserve aspect ratio */
+    border-radius: 50%; /* For circular avatars */
+    border: 1px solid rgb(0, 0, 0); /* Add white border with 2px width */
+  }
+
+.scrollable-table {
+    overflow-x: auto;
+}
+
+/* Style the card header */
+.mat-card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+}
+
+/* Style the table container */
+.table-container {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+}
+
+/* Style the table header cells */
+.mat-header-cell {
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 15px;
+}
+
+/* Style the table cells */
+.mat-cell {
+    padding: 10px 15px;
+}
+
+/* Style the alternate rows */
+.mat-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style the paginator */
+.mat-paginator {
+    justify-content: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ccc;
+}
+
+/* Style the links */
+.white-link {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Add hover effect for links */
+.white-link:hover {
+    text-decoration: none;
+}
+
+/* Add shadow to the card */
+.mat-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

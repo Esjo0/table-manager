@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://random-data-api.com/api/v2/users?size=100&response_type=json';
+  private apiUrl = 'https://random-data-api.com/api/v2'; // Replace with your API URL
 
   constructor(private http: HttpClient) {}
 
-  fetchData(page: number, pageSize: number): Observable<any> {
-    const url = `${this.apiUrl}?page=${page}&pageSize=${pageSize}`;
+  fetchPaginatedData(page: number, limit: number): Observable<any> {
+    const url = `${this.apiUrl}/users?size=100&page=${page}&limit=${limit}`;
+    console.log(url);
     return this.http.get(url);
   }
 }
